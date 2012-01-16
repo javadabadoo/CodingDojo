@@ -1,6 +1,6 @@
-package doo.java.daba.codingdojo.sesion02;
+package doo.daba.java.codingdojo.sesion02;
 
-import doo.java.daba.codingdojo.sesion02.numerosRomanos.Numero;
+import doo.daba.java.codingdojo.sesion02.numerosRomanos.Numero;
 import org.junit.Test;
 
 /**

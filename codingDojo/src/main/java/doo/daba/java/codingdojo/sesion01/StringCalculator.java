@@ -1,4 +1,4 @@
-package doo.java.daba.codingdojo.sesion01;
+package doo.daba.java.codingdojo.sesion01;
 
 import java.util.ArrayList;
 import java.util.Arrays;

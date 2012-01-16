@@ -1,4 +1,4 @@
-package doo.java.daba.codingdojo.sesion02.numerosPrimos;
+package doo.daba.java.codingdojo.sesion02.numerosPrimos;
 
 /**
  *

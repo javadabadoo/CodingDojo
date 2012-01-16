@@ -1,5 +1,6 @@
-package doo.java.daba.codingdojo.sesion01;
+package doo.daba.java.codingdojo.sesion01;
 
+import doo.daba.java.codingdojo.sesion01.StringCalculator;
 import org.junit.Test;
 
 
