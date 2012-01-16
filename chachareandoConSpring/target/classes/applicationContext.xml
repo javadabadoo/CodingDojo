@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- <bean id="dataSource" -->
+<!-- 	class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 	<property name="driverClassName" value="org.postgresql.Driver" /> -->
+<!-- 	<property name="url" value="jdbc:postgresql://127.0.0.1:5432/pruebas" /> -->
+<!-- 	<property name="username" value="pruebas" /> -->
+<!-- 	<property name="password" value="pruebas" /> -->
+<!-- </bean> -->
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/PruebasSpring"></property>
+		<property name="lookupOnStartup" value="true"></property>
+		<property name="cache" value="true"></property>
+		<property name="proxyInterface" value="javax.sql.DataSource"></property>
+	</bean>
+	<bean id="chacharaDao" class="doo.daba.java.pruebas.spring.jdbc.dao.ChacharaDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>
