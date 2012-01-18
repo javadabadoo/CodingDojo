@@ -30,7 +30,7 @@ public class Reglas {
 			UNIDADES_DE_MILLAR = 1000;
 	
 	
-	public static String dameUnidades(int n){
+	public static String convierteNumero(int n, int tipo){
 		String numero = "";
 		
 		if(n == 0) return numero;
@@ -38,63 +38,27 @@ public class Reglas {
 		
 		if(n < 4){
 			for(int i = 0; i < n; i++){
-				numero += NUMEROS_ROMANOS[UNO];
+				numero += obtenNumeroRomano1o5(1, tipo);
 			}
 		}
 		
 		else if(n == 4){
-			numero = NUMEROS_ROMANOS[UNO] + NUMEROS_ROMANOS[CINCO];
+			numero = obtenNumeroRomano1o5(1, tipo) + obtenNumeroRomano1o5(5, tipo);
 		}
 		
 		else if(n == 5){
-			numero = NUMEROS_ROMANOS[CINCO];
+			numero = obtenNumeroRomano1o5(n, tipo);
 		}
 		
 		else if(n > 5 && n < 9){
-			numero = NUMEROS_ROMANOS[CINCO];
+			numero = obtenNumeroRomano1o5(6, tipo);
 			for(int i = 0; i < n-5; i++){
-				numero += NUMEROS_ROMANOS[UNO];
+				numero += obtenNumeroRomano1o5(1, tipo);
 			}
 		}
 		
 		else if(n == 9){
-			numero = NUMEROS_ROMANOS[UNO] + NUMEROS_ROMANOS[DIEZ];
-		}
-		
-		return numero;
-	}
-	
-	
-	
-	public static String dameDecenas(int n){
-		String numero = "";
-		
-		if(n == 0) return numero;
-		
-		
-		if(n < 4){
-			for(int i = 0; i < n; i++){
-				numero += NUMEROS_ROMANOS[DIEZ];
-			}
-		}
-		
-		else if(n == 4){
-			numero = NUMEROS_ROMANOS[DIEZ] + NUMEROS_ROMANOS[CINCUENTA];
-		}
-		
-		else if(n == 5){
-			numero = NUMEROS_ROMANOS[CINCUENTA];
-		}
-		
-		else if(n > 5 && n < 9){
-			numero = NUMEROS_ROMANOS[CINCUENTA];
-			for(int i = 0; i < n-5; i++){
-				numero += NUMEROS_ROMANOS[DIEZ];
-			}
-		}
-		
-		else if(n == 9){
-			numero = NUMEROS_ROMANOS[DIEZ] + NUMEROS_ROMANOS[CIEN];
+			numero = obtenNumeroRomano1o5(1, tipo) + obtenNumeroRomano1o5(1, tipo * 10);
 		}
 		
 		return numero;
@@ -103,54 +67,25 @@ public class Reglas {
 	
 	
 	
-	public static String dameCentenas(int n){
-		String numero = "";
+	private static String obtenNumeroRomano1o5(int numero, int tipo){
 		
-		if(n == 0) return numero;
-		
-		
-		if(n < 4){
-			for(int i = 0; i < n; i++){
-				numero += NUMEROS_ROMANOS[CIEN];
-			}
+		if(tipo == UNIDADES){
+			return numero == 1 ? NUMEROS_ROMANOS[UNO] : NUMEROS_ROMANOS[CINCO];
 		}
 		
-		else if(n == 4){
-			numero = NUMEROS_ROMANOS[CIEN] + NUMEROS_ROMANOS[QUINIENTOS];
+		if(tipo == DECENAS){
+			return numero == 1 ? NUMEROS_ROMANOS[DIEZ] : NUMEROS_ROMANOS[CINCUENTA];
 		}
 		
-		else if(n == 5){
-			numero = NUMEROS_ROMANOS[QUINIENTOS];
+		if(tipo == CENTENAS){
+			return numero == 1 ? NUMEROS_ROMANOS[CIEN] : NUMEROS_ROMANOS[QUINIENTOS];
 		}
 		
-		else if(n > 5 && n < 9){
-			numero = NUMEROS_ROMANOS[QUINIENTOS];
-			for(int i = 0; i < n-5; i++){
-				numero += NUMEROS_ROMANOS[CIEN];
-			}
+		if(tipo == UNIDADES_DE_MILLAR){
+			return numero == 1 ? NUMEROS_ROMANOS[MIL] : "";
 		}
 		
-		else if(n == 9){
-			numero = NUMEROS_ROMANOS[CIEN] + NUMEROS_ROMANOS[MIL];
-		}
-		
-		return numero;
-	}
-	
-	
-	
-	public static String dameUnidadesDeMillar(int n){
-		String numero  = "";
-		
-		if(n > 3){
-			numero = "{WTF!}";
-		}
-		
-		for(int i = 0; i < n; i++){
-			numero += NUMEROS_ROMANOS[MIL];
-		}
-		
-		return numero;
+		return "eh!?";
 	}
 	
 	
